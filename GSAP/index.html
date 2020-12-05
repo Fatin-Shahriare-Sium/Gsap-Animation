@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<style>
+    .t1 {
+        font-size: 2.9rem;
+        color: white;
+        position: fixed;
+        top:29%;
+        left:35%;
+      padding-bottom: 10px;
+    }
+.t2{
+    font-size: 2.9rem;
+        color: rgb(252, 154, 7);
+        position: fixed;
+        top:40%;
+        left:35%;
+        
+}
+.opener{
+    
+    background-color: black;
+    height: 100%;
+    position: fixed;
+    top:0; 
+    left: 0;
+    z-index: 11;
+    width: 100%;
+    
+}
+.box{
+    background-color: black;
+    padding: 50px;
+    width:60px;
+}
+
+#pic{
+
+    position: absolute;
+    top:40%;
+    left: 5%;
+    z-index: 1;
+
+    max-width: 100px;
+    
+}
+
+
+</style>
+<body>
+    <section>
+    <div class="box"></div>
+<img id="pic" src="images.png">
+</section>
+<div class="opener">
+    <div class="big-text">
+    <p class="t1">The magic of GSAP3</p>
+    <P class="t2">The best JS animation library</P>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/MotionPathPlugin.min.js" integrity="sha512-2vgSeT4mD0azBGIp91Fnho9fbT8ZG8zu5c+mK//TGxj4YNX2mRAwEZHtZsMRwA7ObqH6Vl7mMOdvkzNVTuhUcA==" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+    <script>
+//      gsap.registerPlugin(MotionPathPlugin);
+
+// const tween = gsap.timeline();
+// tween.to("#pic", {
+//   duration: 1,
+//   ease: "power1.inOut",
+//   motionPath: {
+//     path: [{x: 100, y: 0},{x:400,y:50},{x:500,y:100},{x:300,y:100},{x:400,y:0},{x:1000}], // you probably want more points here...or just use an SVG <path>!
+//     curviness: 1,
+//     autoRotate: true
+//   }
+// });
+
+gsap.registerPlugin(MotionPathPlugin)
+let tl=gsap.timeline()
+
+tl.from(".t1",{duration:1.5,opacity:0,display:"none",fontWeigth:"blod"})
+.from(".t2",{duration:1.5,opacity:0,delay:1,fontWeigth:"blod",display:"none"})
+
+
+
+
+
+
+
+
+
+
+.to(".opener",{
+    duration:2,
+y:-1000,
+ease:Power2.easeOut,
+delay:0
+
+
+})
+
+
+
+
+
+
+.to("#pic",{
+    duration:3,
+    // opacity:.0,
+    // scaleX:2,
+    motionPath:{
+        path:[{x:500,y:100},{x:500,y:300},{x:-1,y:30},{x:1000,y:-150}],
+        curviness:1,
+        autoRotate:true
+    }
+})
+.to(".box",{
+    duration:2,
+    x:0,y:250
+
+})
+.to(".box",{
+    duration:1,
+    x:1050
+
+})
+.to("#pic",{
+    duration:3,
+    y:.0000000000001
+})
+.to(".box",{
+    duration:1,
+    y:180
+})
+
+
+
+
+
+    </script>
+</body>
+</html>
